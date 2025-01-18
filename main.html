@@ -11,25 +11,25 @@
 		function secondHighest(arr) {
 			//Write your code here
 			if (arr.length <= 1) {
-                return -Infinity;  
+                return -Infinity;  // Return -Infinity for empty or single element array
             }
 
-            let max1 = -Infinity; 
-			let max2 = -Infinity; 
+            let max1 = -Infinity;  // To store the highest number
+			let max2 = -Infinity;  // To store the second-highest number
 
             for (let i = 0; i < arr.length; i++) {
-                
-                let num = Number(arr[i]);
+                let num = Number(arr[i]);  // Convert input to numbers (since prompt returns strings)
 
                 if (num > max1) {
-                    max2 = max1; 
-					max1 = num;
-                } else if (num > max2 && num < max1) {
-                    max2 = num; 
+                    max2 = max1;  // update second highest
+					max1 = num;    // update highest
+                } 
+				else if (num > max2 && num < max1) {
+                    max2 = num;  // update second highest
                 }
             }
 
-
+            // If max2 is still -Infinity, it means all elements were the same
             if (max2 === -Infinity) {
                 return -Infinity;
             }
@@ -37,23 +37,20 @@
             return max2;
         }
 
-			
-			
-		}
-
 		function Main() {
 			var n = prompt("Enter the number of elements");
 			var arr = [];
 			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
+				arr[i] = prompt("Enter element " + (i + 1));  // Collect the elements from the user
 			}
-			alert(secondHighest(arr));
+			alert(secondHighest(arr));  // Display the second highest element
 		}
-		Main();
+
+		Main();  // Call the Main function to start the script
 	</script>
 
     <script type="text/javascript" src="./script.js">
-</script>
+	</script>
 
 </body>
 
